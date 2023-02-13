@@ -14,10 +14,9 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var calorieTextField: UITextField!
     @IBOutlet weak var cookTimeTextField: UITextField!
     @IBOutlet weak var recipeDescriptionTextField: UITextView!
-    @IBOutlet weak var isFavoriteButton: UIButton!
     
     // MARK: - Properties
-//    let recipeController = RecipeController.shared
+
     var recipe: Recipe?
     
     // MARK: - Methods
@@ -36,14 +35,6 @@ class RecipeDetailViewController: UIViewController {
         if let cookTime = recipe.cookTime {
             cookTimeTextField.text = "\(cookTime)"
         }
-        updateFavoriteButton()
-    }
-    
-    func updateFavoriteButton() {
-        guard let recipe = recipe else { return }
-        let favoriteImageName = recipe.isFavorite ? "star.fill" : "star"
-        let favoriteImage = UIImage(systemName: favoriteImageName)
-        isFavoriteButton.setImage(favoriteImage, for: .normal)
     }
     
     // MARK: - IBActions
@@ -59,11 +50,5 @@ class RecipeDetailViewController: UIViewController {
                                 calories: calories,
                                 cookTime: cookTime)
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func isFavoriteButtonTapped(_ sender: UIButton) {
-        guard let recipe = recipe else { return }
-        RecipeController.toggleFavorite(recipe: recipe)
-        updateFavoriteButton()
     }
 }
