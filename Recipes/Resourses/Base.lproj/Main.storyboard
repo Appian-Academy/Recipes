@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="42k-5Q-A6m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="42k-5Q-A6m">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RecipeCategory" textLabel="Bj7-ou-0Yd" detailTextLabel="dwG-ox-WSF" style="IBUITableViewCellStyleSubtitle" id="dI6-It-l0r">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="47.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Bj7-ou-0Yd" detailTextLabel="dwG-ox-WSF" style="IBUITableViewCellStyleSubtitle" id="dI6-It-l0r">
+                                <rect key="frame" x="0.0" y="50" width="414" height="47.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dI6-It-l0r" id="LP5-iU-wDo">
-                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383.5" height="47.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bj7-ou-0Yd">
@@ -41,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="tdF-fv-0ek" kind="show" identifier="toRecipeCategoryDetail" id="H0F-5r-hFM"/>
+                                    <segue destination="tdF-fv-0ek" kind="show" identifier="" id="H0F-5r-hFM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -51,11 +52,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recipes Categories" id="BQ3-UF-OL9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Md-hQ-N3O">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="Rlg-Hc-xCK" id="iwy-Yc-JZW"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Md-hQ-N3O"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8y-Mc-GQv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -70,88 +67,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="YAh-Vg-wmf">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vUp-nq-V26">
-                                    <rect key="frame" x="16" y="8" width="382" height="75"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hH-To-B4q">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dep-8b-eiz">
-                                            <rect key="frame" x="0.0" y="42" width="382" height="34"/>
-                                            <segments>
-                                                <segment title="All"/>
-                                                <segment title="Favorites"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="filterSegmentedControlValueChanged:" destination="tdF-fv-0ek" eventType="valueChanged" id="xWa-HW-1B0"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstItem="vUp-nq-V26" firstAttribute="top" secondItem="YAh-Vg-wmf" secondAttribute="top" constant="8" id="VbZ-bh-tjN"/>
-                                <constraint firstAttribute="bottom" secondItem="vUp-nq-V26" secondAttribute="bottom" constant="8" id="eWv-bV-SSx"/>
-                                <constraint firstItem="vUp-nq-V26" firstAttribute="leading" secondItem="YAh-Vg-wmf" secondAttribute="leading" constant="16" id="euA-1S-daR"/>
-                                <constraint firstAttribute="trailing" secondItem="vUp-nq-V26" secondAttribute="trailing" constant="16" id="xkq-Cd-N70"/>
-                            </constraints>
-                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="83" id="kZa-2c-dJY" customClass="RecipeTableViewCell" customModule="Recipes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="135.5" width="414" height="83"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="83" id="kZa-2c-dJY" customClass="RecipeTableViewCell" customModule="Recipes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="414" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kZa-2c-dJY" id="SUg-JS-KlC">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6sh-5H-Hnj">
-                                            <rect key="frame" x="28" y="19" width="328" height="45"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fca-pC-Asd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="328" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlX-ja-GAj">
-                                                    <rect key="frame" x="0.0" y="28.5" width="328" height="16.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="900" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-cI-uBS">
-                                            <rect key="frame" x="364" y="19" width="22" height="45"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" image="star.fill" catalog="system"/>
-                                            <connections>
-                                                <action selector="toggleFavoriteButtonTapped:" destination="kZa-2c-dJY" eventType="touchUpInside" id="tZB-DD-E21"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="6sh-5H-Hnj" firstAttribute="top" secondItem="SUg-JS-KlC" secondAttribute="topMargin" constant="8" id="A0X-IV-HT8"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qSS-cI-uBS" secondAttribute="trailing" constant="8" id="FPd-xl-N2n"/>
-                                        <constraint firstItem="qSS-cI-uBS" firstAttribute="leading" secondItem="6sh-5H-Hnj" secondAttribute="trailing" constant="8" id="INH-ed-tXM"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="qSS-cI-uBS" secondAttribute="bottom" constant="8" id="LUx-Ss-s66"/>
-                                        <constraint firstItem="qSS-cI-uBS" firstAttribute="top" secondItem="SUg-JS-KlC" secondAttribute="topMargin" constant="8" id="PBz-Vf-eKV"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6sh-5H-Hnj" secondAttribute="bottom" constant="8" id="c0H-zF-qv0"/>
-                                        <constraint firstItem="6sh-5H-Hnj" firstAttribute="leading" secondItem="SUg-JS-KlC" secondAttribute="leadingMargin" constant="8" id="fzJ-H0-VSL"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="favoriteButton" destination="qSS-cI-uBS" id="2v8-hu-IdQ"/>
-                                    <outlet property="recipeSubtitleLabel" destination="SlX-ja-GAj" id="Gtb-2u-g59"/>
-                                    <outlet property="recipeTitleLabel" destination="fca-pC-Asd" id="JPf-7v-ark"/>
-                                    <segue destination="RhT-1e-pN6" kind="show" identifier="toRecipeDetail" id="tzv-x7-B8a"/>
+                                    <segue destination="RhT-1e-pN6" kind="show" identifier="" id="tzv-x7-B8a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -162,32 +87,24 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="1iM-dA-Oby">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Osi-pT-5eL">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="tdF-fv-0ek" id="K24-Jm-tvR"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Osi-pT-5eL"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="categoryNameTextField" destination="1hH-To-B4q" id="Nsz-o8-3Wf"/>
-                        <outlet property="filterSegmentedControl" destination="dep-8b-eiz" id="CoH-kq-kPu"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnv-Lt-SHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1179.7101449275362" y="-159.375"/>
         </scene>
-        <!--Recipe Detail View Controller-->
+        <!--View Controller-->
         <scene sceneID="Mzy-cw-9fH">
             <objects>
-                <viewController id="RhT-1e-pN6" customClass="RecipeDetailViewController" customModule="Recipes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RhT-1e-pN6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ckb-E9-slL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="z6c-S1-oTi">
-                                <rect key="frame" x="16" y="138" width="382" height="52.5"/>
+                                <rect key="frame" x="16" y="142" width="382" height="52.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="i3d-Zx-X79">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="52.5"/>
@@ -224,7 +141,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CQ9-Lk-mP2">
-                                <rect key="frame" x="16" y="96" width="382" height="34"/>
+                                <rect key="frame" x="16" y="100" width="382" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipes Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Svq-r2-xLA">
                                         <rect key="frame" x="0.0" y="0.0" width="352" height="34"/>
@@ -235,14 +152,11 @@
                                         <rect key="frame" x="360" y="0.0" width="22" height="34"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="star.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="isFavoriteButtonTapped:" destination="RhT-1e-pN6" eventType="touchUpInside" id="vgQ-h4-l04"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8sr-UW-cpW">
-                                <rect key="frame" x="16" y="206.5" width="382" height="590.5"/>
+                                <rect key="frame" x="16" y="210.5" width="382" height="586.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Recipes Description
 
@@ -268,23 +182,12 @@ Lorem Ipsum...</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fxf-uI-ydI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BCk-WY-Gn5">
-                            <connections>
-                                <action selector="saveButtonTapped:" destination="RhT-1e-pN6" id="J55-6k-IiI"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="BCk-WY-Gn5"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="calorieTextField" destination="EsZ-rL-Ppu" id="Wf8-89-1ik"/>
-                        <outlet property="cookTimeTextField" destination="twu-Ol-hRa" id="YmD-5Z-kCf"/>
-                        <outlet property="isFavoriteButton" destination="yQ1-mJ-F4h" id="QnK-wB-Ac0"/>
-                        <outlet property="recipeDescriptionTextField" destination="8sr-UW-cpW" id="Or3-Pl-Dka"/>
-                        <outlet property="recipeTitleTextField" destination="Svq-r2-xLA" id="qEU-tT-cge"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8Q-Y8-Yf0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2305.7971014492755" y="-165.40178571428569"/>
+            <point key="canvasLocation" x="2059" y="-159"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nqf-Ot-Qls">
@@ -293,7 +196,7 @@ Lorem Ipsum...</string>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hc6-dv-xXr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iBU-z0-f6N">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -309,7 +212,7 @@ Lorem Ipsum...</string>
     <resources>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
