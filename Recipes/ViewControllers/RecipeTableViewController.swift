@@ -11,7 +11,7 @@ class RecipeTableViewController: UITableViewController {
     
     @IBOutlet weak var categoryNameTextField: UITextField!
     
-    let recipeController = RecipeController.shared
+    let categoryController = CategoryController.shared
     var category: RecipeCategory?
 
     // MARK: - Lifecycle Methods
@@ -25,7 +25,7 @@ class RecipeTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         guard let category = category,
             let newTitle = categoryNameTextField.text else { return }
-        recipeController.updateRecipeCategory(category: category, title: newTitle)
+        categoryController.updateRecipeCategory(category: category, title: newTitle)
     }
 
     // MARK: - Table view data source
@@ -46,7 +46,7 @@ class RecipeTableViewController: UITableViewController {
         if editingStyle == .delete {
             guard let category = category else { return }
             let recipe = category.recipes[indexPath.row]
-            recipeController.delete(recipe: recipe, in: category)
+                RecipeController.delete(recipe: recipe, in: category)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -63,7 +63,7 @@ class RecipeTableViewController: UITableViewController {
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let category = category else { return }
-        recipeController.createRecipe(in: category)
+        RecipeController.createRecipe(in: category)
         let newRow = category.recipes.count - 1
         let indexPath = IndexPath(row: newRow, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
@@ -76,7 +76,7 @@ extension RecipeTableViewController: RecipeTableViewCellDelegate {
     
     func toggleFavoriteButtonWasTapped(cell: RecipeTableViewCell) {
         guard let recipe = cell.recipe else { return }
-        recipeController.toggleFavorite(recipe: recipe)
+        RecipeController.toggleFavorite(recipe: recipe)
         cell.updateViews()
     }
 }

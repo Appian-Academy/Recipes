@@ -17,7 +17,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var isFavoriteButton: UIButton!
     
     // MARK: - Properties
-    let recipeController = RecipeController.shared
+//    let recipeController = RecipeController.shared
     var recipe: Recipe?
     
     // MARK: - Methods
@@ -53,7 +53,7 @@ class RecipeDetailViewController: UIViewController {
               let description = recipeDescriptionTextField.text else { return }
         let calories = Int(calorieTextField.text ?? "")
         let cookTime = Int(cookTimeTextField.text ?? "")
-        recipeController.update(recipe: recipe,
+        RecipeController.update(recipe: recipe,
                                 title: title,
                                 description: description,
                                 calories: calories,
@@ -63,7 +63,7 @@ class RecipeDetailViewController: UIViewController {
     
     @IBAction func isFavoriteButtonTapped(_ sender: UIButton) {
         guard let recipe = recipe else { return }
-        recipeController.toggleFavorite(recipe: recipe)
+        RecipeController.toggleFavorite(recipe: recipe)
         updateFavoriteButton()
     }
 }
