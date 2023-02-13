@@ -9,7 +9,7 @@ import UIKit
 
 class RecipeCategoryTableViewController: UITableViewController {
     
-    let categoryController = CategoryController.shared
+//    let categoryController = CategoryController.shared
     
     // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
@@ -19,40 +19,40 @@ class RecipeCategoryTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryController.categories.count
+//        return categoryController.categories.count
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCategory", for: indexPath)
-        let category = categoryController.categories[indexPath.row]
-        cell.textLabel?.text = category.title
-        cell.detailTextLabel?.text = "\(category.recipes.count) Recipes"
+//        let category = categoryController.categories[indexPath.row]
+//        cell.textLabel?.text = category.title
+//        cell.detailTextLabel?.text = "\(category.recipes.count) Recipes"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let category = categoryController.categories[indexPath.row]
-            categoryController.delete(category: category)
+//            let category = categoryController.categories[indexPath.row]
+//            categoryController.delete(category: category)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "toRecipeCategoryDetail",
-              let categoryDetailViewController = segue.destination as? RecipeTableViewController,
-              let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
-        let category = categoryController.categories[selectedRow]
-        categoryDetailViewController.category = category
+//        guard segue.identifier == "toRecipeCategoryDetail",
+//              let categoryDetailViewController = segue.destination as? RecipeTableViewController,
+//              let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
+//        let category = categoryController.categories[selectedRow]
+//        categoryDetailViewController.category = category
     }
     
     // MARK: - IBActions
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        categoryController.createRecipeCategory()
-        let newRow = categoryController.categories.count - 1
-        let indexPath = IndexPath(row: newRow, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+//        categoryController.createRecipeCategory()
+//        let newRow = categoryController.categories.count - 1
+//        let indexPath = IndexPath(row: newRow, section: 0)
+//        tableView.insertRows(at: [indexPath], with: .automatic)
     }
-    
 }
