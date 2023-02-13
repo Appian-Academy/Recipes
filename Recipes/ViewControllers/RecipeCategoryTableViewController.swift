@@ -9,7 +9,7 @@ import UIKit
 
 class RecipeCategoryTableViewController: UITableViewController {
     
-    let recipeController = RecipeController.shared
+    let categoryController = CategoryController.shared
     
     // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
@@ -19,12 +19,12 @@ class RecipeCategoryTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeController.categories.count
+        return categoryController.categories.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCategory", for: indexPath)
-        let category = recipeController.categories[indexPath.row]
+        let category = categoryController.categories[indexPath.row]
         cell.textLabel?.text = category.title
         cell.detailTextLabel?.text = "\(category.recipes.count) Recipes"
         return cell
@@ -32,8 +32,13 @@ class RecipeCategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+<<<<<<< HEAD
             let category = recipeController.categories[indexPath.row]
             recipeController.delete(category: category)
+=======
+            let category = categoryController.categories[indexPath.row]
+            categoryController.delete(category: category)
+>>>>>>> day1Complete
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -43,14 +48,14 @@ class RecipeCategoryTableViewController: UITableViewController {
         guard segue.identifier == "toRecipeCategoryDetail",
               let categoryDetailViewController = segue.destination as? RecipeTableViewController,
               let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
-        let category = recipeController.categories[selectedRow]
+        let category = categoryController.categories[selectedRow]
         categoryDetailViewController.category = category
     }
     
     // MARK: - IBActions
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
-        recipeController.createRecipeCategory()
-        let newRow = recipeController.categories.count - 1
+        categoryController.createRecipeCategory()
+        let newRow = categoryController.categories.count - 1
         let indexPath = IndexPath(row: newRow, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }

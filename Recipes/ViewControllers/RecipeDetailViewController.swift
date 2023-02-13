@@ -16,12 +16,16 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeDescriptionTextField: UITextView!
     
     // MARK: - Properties
-    let recipeController = RecipeController.shared
+
     var recipe: Recipe?
     
     // MARK: - Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateViews()
+    }
+    
+    func updateViews() {
         guard let recipe = recipe else { return }
         recipeTitleTextField.text = recipe.title
         recipeDescriptionTextField.text = recipe.description
@@ -33,13 +37,14 @@ class RecipeDetailViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let recipe = recipe,
               let title = recipeTitleTextField.text,
               let description = recipeDescriptionTextField.text else { return }
         let calories = Int(calorieTextField.text ?? "")
         let cookTime = Int(cookTimeTextField.text ?? "")
-        recipeController.update(recipe: recipe,
+        RecipeController.update(recipe: recipe,
                                 title: title,
                                 description: description,
                                 calories: calories,

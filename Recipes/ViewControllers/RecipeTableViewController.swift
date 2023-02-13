@@ -11,9 +11,8 @@ class RecipeTableViewController: UITableViewController {
     
     @IBOutlet weak var categoryNameTextField: UITextField!
     
-    let recipeController = RecipeController.shared
     var category: RecipeCategory?
-
+    
     // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,25 +23,20 @@ class RecipeTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         guard let category = category,
-            let newTitle = categoryNameTextField.text else { return }
-        recipeController.updateRecipeCategory(category: category, title: newTitle)
+              let newTitle = categoryNameTextField.text else { return }
+        CategoryController.shared.updateRecipeCategory(category: category, title: newTitle)
     }
-
+    
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return category?.recipes.count ?? 0
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
-        guard let recipe = category?.recipes[indexPath.row] else { return cell }
-        cell.textLabel?.text = recipe.title
-        if let calories = recipe.calories {
-            cell.detailTextLabel?.text = "\(calories) Cal"
-        } else {
-            cell.detailTextLabel?.text = nil
-        }
+        let recipe = category?.recipes[indexPath.row]
+        cell.textLabel?.text = recipe?.title
+        cell.detailTextLabel?.text = "\(recipe?.cookTime ?? 0) Mins"
         return cell
     }
     
@@ -50,11 +44,15 @@ class RecipeTableViewController: UITableViewController {
         if editingStyle == .delete {
             guard let category = category else { return }
             let recipe = category.recipes[indexPath.row]
+<<<<<<< HEAD
             recipeController.delete(recipe: recipe, in: category)
+=======
+            RecipeController.delete(recipe: recipe, in: category)
+>>>>>>> day1Complete
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "toRecipeDetail",
@@ -67,10 +65,9 @@ class RecipeTableViewController: UITableViewController {
     // MARK: - Actions
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         guard let category = category else { return }
-        recipeController.createRecipe(in: category)
+        RecipeController.createRecipe(in: category)
         let newRow = category.recipes.count - 1
         let indexPath = IndexPath(row: newRow, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
-    
 }

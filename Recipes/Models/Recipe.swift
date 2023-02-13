@@ -13,13 +13,20 @@ class Recipe: Codable {
     var description: String
     var calories: Int?
     var cookTime: Int?
+    var isFavorite: Bool
     
-    init(id: UUID = UUID(), title: String, description: String, calories: Int?, cookTime: Int?) {
+    init(id: UUID = UUID(),
+         title: String,
+         description: String,
+         calories: Int?,
+         cookTime: Int?,
+         isFavorite: Bool = false) {
         self.id = id
         self.title = title
         self.description = description
         self.calories = calories
         self.cookTime = cookTime
+        self.isFavorite = isFavorite
     }
 }
 
