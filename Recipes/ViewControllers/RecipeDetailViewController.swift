@@ -17,7 +17,6 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var isFavoriteButton: UIButton!
     
     // MARK: - Properties
-//    let recipeController = RecipeController.shared
     var recipe: Recipe?
     
     // MARK: - Methods

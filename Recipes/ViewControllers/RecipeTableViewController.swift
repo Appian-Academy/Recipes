@@ -11,7 +11,6 @@ class RecipeTableViewController: UITableViewController {
     
     @IBOutlet weak var categoryNameTextField: UITextField!
     
-    let categoryController = CategoryController.shared
     var category: RecipeCategory?
 
     // MARK: - Lifecycle Methods
@@ -25,7 +24,7 @@ class RecipeTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         guard let category = category,
             let newTitle = categoryNameTextField.text else { return }
-        categoryController.updateRecipeCategory(category: category, title: newTitle)
+        CategoryController.shared.updateRecipeCategory(category: category, title: newTitle)
     }
 
     // MARK: - Table view data source
