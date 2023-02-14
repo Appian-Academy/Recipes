@@ -44,11 +44,8 @@ class RecipeTableViewController: UITableViewController {
         if editingStyle == .delete {
             guard let category = category else { return }
             let recipe = category.recipes[indexPath.row]
-<<<<<<< HEAD
-            recipeController.delete(recipe: recipe, in: category)
-=======
             RecipeController.delete(recipe: recipe, in: category)
->>>>>>> day1Complete
+
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
